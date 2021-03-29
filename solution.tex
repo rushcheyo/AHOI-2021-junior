@@ -1,0 +1,69 @@
+\documentclass[12pt,a4paper,oneside]{article}
+% \usepackage{luatexja-fontspec}
+\usepackage{ctex}
+\usepackage{xeCJKfntef,xcolor}
+\usepackage{parallel}
+\usepackage{clrscode3e}
+\usepackage{lastpage}
+\usepackage{tikz}
+\usepackage{tipa}
+\usepackage{amsfonts}
+\usepackage{minted}
+\usepackage[bookmarks=true]{hyperref}
+\hypersetup{unicode = true}
+\usetikzlibrary{arrows.meta,
+                quotes}
+\usepackage[english]{babel}
+\setCJKmainfont{FandolSong-Regular.otf}[BoldFont=FandolHei-Regular.otf,ItalicFont=FandolFang-Regular.otf]
+\setmonofont{Inconsolata}
+
+\renewcommand{\theFancyVerbLine}{\ttfamily
+\textcolor[rgb]{0.5,0.5,0.5}{\scriptsize
+\oldstylenums{\arabic{FancyVerbLine}}}}
+
+\usepackage{indentfirst}
+\usepackage{amsmath}
+\usepackage{geometry}
+\geometry{left=2.5cm,right=2.5cm,top=2cm,bottom=2cm}
+
+\setlength{\parindent}{2em}
+\linespread{1.25}
+
+\newcommand{\bfemph}[1]{\CJKunderdot{\textbf{#1}}}
+\renewcommand{\emph}[1]{\bfemph{#1}}
+\newcommand{\D}{\mathrm d}
+
+\begin{document}
+
+\title{\bf 2021 年安徽省青少年信息学奥林匹克竞赛：题解}
+\author{rushcheyo}
+\maketitle
+
+\section{运气游戏（mahjong）}
+
+直接模拟就行，可参见标程。
+
+\section{坑（hole）}
+
+设 $l_i,r_i$ 是第 $i$ 只跳蚤到左边/右边最近坑的距离，没坑则为 $+\infty$。
+
+
+
+\section{钩子·Plus（hookplus）}
+
+首先将问题改述为：
+
+{\it 给每个钩子独立分配一个 $[0,1]$ 内均匀分布的随机实数 $p_{\ast}$，然后按这些数递增顺序依次考虑每个钩子，若当前钩子两边是空的就挂上衣服。}
+
+那么样例 1 就不难解决了。不妨令钩子编号为 $(-\infty,+\infty)$，我们考虑 $0$ 号钩子被占的概率。设 $l,r$ 满足 $p_{l-1}>p_l<p_{l+1}<\cdots<p_{-1}<p_0>p_1>\cdots>p_{r-1}>p_r<p_{r+1}$，充要条件便为 $l,r$ 均为偶数。若 $p_0=1-x$，那么概率密度是：
+  \begin{align*}
+     &\left(P(p_0>p_1)+P(p_0<p_1<p_2>p_3)+\cdots\right)^2\\
+    =&\left(1-P(p_0<p_1)+P(p_0<p_1<p_2)-P(p_0<p_1<p_2<p_3)+\cdots\right)^2\\
+    =&\left(1-x+\frac{x^2}{2}-\frac{x^3}{6}+\cdots\right)^2\\
+    =&\,e^{-2x}
+  \end{align*}
+  其 $[0,1]$ 上的积分为 $\frac{1}{2}-\frac{1}{2e^2}$。
+
+现在解决原问题。我们用 DP 计算 $[0,N)$ 与记录符合的概率。设 $f(i,x,t_1,t_2,t_3)$ 表示，$(-\infty,i]$ 的实数已经确定，$p_i=x$，$i$ 左边递减段长度的奇偶性为 $t_1$，$t_2$/$t_3$ 分别表示 $i$ 右边的递减段长度为奇数/偶数时，$[0,i]$ 的记录是否吻合。可以发现，固定 $i,t_1,t_2,t_3$ 时，$f(x)=P(x)+\frac{Q(x)}{e}+\frac{r}{e^2}$，其中 $P,Q$ 是 $O(m)$ 次的有理多项式，$r$ 是有理数；转移时大力积分就好。
+
+\end{document}

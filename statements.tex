@@ -1,6 +1,7 @@
 \documentclass[11pt,a4paper,oneside]{article}
 % \usepackage{luatexja-fontspec}
 \usepackage{ctex}
+\usepackage{xeCJKfntef}
 \usepackage{parallel}
 \usepackage{clrscode3e}
 \usepackage{lastpage}
@@ -40,7 +41,7 @@
 \renewcommand{\sectionmark}[1]{\markright{#1}}
 \renewcommand{\subsectionmark}[1]{\markright{#1}}
 
-\lhead{“科大国创杯” 2021 年安徽省青少年信息学奥林匹克竞赛}
+\lhead{“科大国创杯” 2021 年安徽省青少年信息学科普日活动}
 \chead{}
 \rhead{初中组试题}
 \lfoot{\small 安徽 \, 合肥}
@@ -54,30 +55,29 @@
 % \thispagestyle{empty}
 
 \begin{center}
-\textbf{\huge “科大国创杯”\\2021 年安徽省青少年信息学奥林匹克竞赛}\\
-  {\LARGE \textit{初中组试题}\\
-  AOI 2021\\~\\}
+\textbf{\huge “科大国创杯” \\ 2021 年安徽省青少年信息学科普日活动}\\
+  {\LARGE \textit{初中组试题}\\\vspace{1em}}
   {\Large 比赛时间：2021 年 4 月 10 日 14:00–18:00}
 \end{center}
 
 \begin{center}
 \begin{tabular}{|l|l|l|l|l|}
 \hline
-题目名称&运气游戏&坑&收衣服&地铁\\
+题目名称&超市购物&坑&收衣服&地铁\\
 \hline
 题目类型&传统型&传统型&传统型&传统型\\
 \hline
-题目英文名&\ttfamily mahjong&\ttfamily hole&\ttfamily sort&\ttfamily subway\\
+题目英文名&\ttfamily shopping&\ttfamily hole&\ttfamily sort&\ttfamily subway\\
 \hline
-输入文件名&\ttfamily mahjong.in&\ttfamily hole.in&\ttfamily sort.in&\ttfamily subway.in\\
+输入文件名&\ttfamily shopping.in&\ttfamily hole.in&\ttfamily sort.in&\ttfamily subway.in\\
 \hline
-输入文件名&\ttfamily mahjong.out&\ttfamily hole.out&\ttfamily sort.out&\ttfamily subway.out\\
+输入文件名&\ttfamily shopping.out&\ttfamily hole.out&\ttfamily sort.out&\ttfamily subway.out\\
 \hline
 时间限制&1.0 秒&1.0 秒&1.0 秒&1.0 秒\\
 \hline
 内存限制&512 MB&512 MB&512 MB&512 MB\\
 \hline
-测试点数目&20&20&20&20\\
+测试点数目&10&20&20&20\\
 \hline
 \end{tabular}
 \end{center}
@@ -87,11 +87,11 @@
 \begin{center}
 \begin{tabular}{|l|l|l|l|l|}
 \hline
-C++ 语言 &\ttfamily mahjong.cpp&\ttfamily hole.cpp&\ttfamily sort.cpp&\ttfamily subway.cpp\\
+C++ 语言 &\ttfamily shopping.cpp&\ttfamily hole.cpp&\ttfamily sort.cpp&\ttfamily subway.cpp\\
 \hline
-C 语言 &\ttfamily mahjong.c&\ttfamily hole.c&\ttfamily sort.c&\ttfamily subway.c\\
+C 语言 &\ttfamily shopping.c&\ttfamily hole.c&\ttfamily sort.c&\ttfamily subway.c\\
 \hline
-Pascal 语言 &\ttfamily mahjong.pas&\ttfamily hole.pas&\ttfamily sort.pas&\ttfamily subway.pas\\
+Pascal 语言 &\ttfamily shopping.pas&\ttfamily hole.pas&\ttfamily sort.pas&\ttfamily subway.pas\\
 \hline
 \end{tabular}
 \end{center}
@@ -99,7 +99,7 @@ Pascal 语言 &\ttfamily mahjong.pas&\ttfamily hole.pas&\ttfamily sort.pas&\ttfa
 编译选项
 
 \begin{center}
-  \begin{tabular}{|l|p{83.5mm}|}
+  \begin{tabular}{|l|p{86mm}|}
   \hline
   C++ 语言 & \centering \ttfamily -lm\tabularnewline
   \hline
@@ -111,12 +111,12 @@ Pascal 语言 &\ttfamily mahjong.pas&\ttfamily hole.pas&\ttfamily sort.pas&\ttfa
 \end{center}
 
 \textbf{\large \underline{注意事项（请选手仔细阅读）：}}
+
 \begin{enumerate}
 \item 文件名（程序名和输入输出文件名）必须使用英文小写。
-\item C/C++ 中函数 \texttt{main()} 的返回值类型必须是 \texttt{int}，程序正常结束时的返回值
-必须是 0。
+\item C/C++ 中函数 \texttt{main()} 的返回值类型必须是 \texttt{int}，程序正常结束时的返回值必须是 0。
 \item 选手需要在桌面上建立以选手的参赛号为名的目录，并由选手为每道题再单独建立一个子目录，子目录名与对应的试题英文名相同。选手提交的每道试题的源程序必须存放在相应的子目录下。
-\item 因违反以上三点而出现的错误或问题，申诉时一律不予受理。
+\item 因违反以上三点而出现的错误或问题，申诉时一律不予受理。如果现场有不同要求，以现场为准。
 \item 若无特殊说明，结果的比较方式为全文比较（过滤行末空格及文末回车）。
 \item 程序可使用的栈内存空间限制与题目的内存限制一致。
 \item 只提供 Linux 格式附加样例文件。
@@ -125,7 +125,7 @@ Pascal 语言 &\ttfamily mahjong.pas&\ttfamily hole.pas&\ttfamily sort.pas&\ttfa
 
 \newpage
 
-\section{运气游戏（mahjong）}
+\section{超市购物（shopping）}
 
 \subsection*{【题目背景】}
 
@@ -135,112 +135,81 @@ Pascal 语言 &\ttfamily mahjong.pas&\ttfamily hole.pas&\ttfamily sort.pas&\ttfa
 
 “今天真不是个出门的时候啊！”小可可感叹道。
 
-小雪附和了一句。过了一会儿，除了几句客套外仿佛也聊不出什么话题了。
+“但是我还有东西要买……你就陪我去下超市吧？”
 
-突然，小可可想到了一个绝妙的打发时间的办法：麻将！
+在超市里，小雪一共买了 23.70 元的东西，最后却只付了 20.1 元，小可可见状很疑惑。
 
-“就算你这么说，可我不会打麻将啊！”
+“超市对学生有优惠呗，最后会打八五折。”
 
-“你打开软件跟着学一下，再打打，不久就会了。”
+“那也不可能是这个价啊？我想想……应该是 20.145 元才对。”
 
-小雪很快就加入了一局麻将，是庄家，也就是第一个出牌的人。奇怪的是，小雪刚摸到第一张牌，系统就显示了一个“和”的按钮。
-
-“怎么可能？系统出问题了吧？”
-
-“这也太简单了吧！麻将只不过是个\textit{运气游戏}吧？”
-
-不服气的小可可仔细看了看小雪的手牌，发现居然确实和了，这种一张牌没出就取胜的罕见现象叫作\textit{天和}。更稀奇的是，小雪的牌型实际上还符合了另一种少见的\textit{役}——\textit{四暗刻}。
+“超市结算的时候最后会去分化整，也就是说，以角作为付钱的最小单位，多的零头就不要了。”
 
 \subsection*{【问题描述】}
 
-如果每个人都有小雪一样的好运气的话，麻将就变成一个规则很简单的游戏了——你只需要验证你的手牌有没有和成四暗刻。
-
-麻将一共有 34 种牌，分为 5 类——万子、筒子、索子、风牌和三元牌：
-
-\begin{enumerate}
-  \item 万字、筒子和索子各包含九种分别写有一到九的麻将牌；
-  \item 风牌有东风、南风、西风、北风四种；
-  \item 三元牌分为白、发、中三种。
-\end{enumerate}
-
-以上每种牌有 4 张，总共 136 张。每个玩家手中常有 13 张牌，每回合摸一张牌形成 14 张牌，再打一张牌。
-
-介绍四暗刻的和牌条件前，先介绍\emph{刻子和对子}：
-
-\begin{enumerate}
-
-\item 刻子指的是完全相同的 3 张牌。
-
-\item 对子指的是完全相同的 2 张牌。
-
-\end{enumerate}
-
-当你的手牌形成了 \emph{4 个刻子和 1 个对子时，就和成四暗刻}啦！
-
-现在，小可可给了你 14 张牌，你能不能判断出有没有和出四暗刻呢？
+现在，假如小可可一共买了 $n$ 种类型的商品，第 $i$ 种商品的单价为 $a_i$ 元，买了 $b_i$ 件，最后打八五折，并且舍去多出的小于一角的零头，你能不能帮他算算实际要付的钱数？
 
 \subsection*{【输入格式】}
 
-输入文件名为 \texttt{mahjong.in}。
+输入文件名为 \texttt{shopping.in}。
 
-\emph{输入包含多组测试数据。}
+第一行一个正整数 $n$，表示商品的种类数。
 
-第一行是一个正整数 $T$，表示测试数据的组数。
-
-下面 $T$ 组测试数据。每组测试数据包含一行 14 个用空格隔开的字符串，按以下的格式输入麻将牌：
-
-\begin{enumerate}
-  \item 万子、筒子和索子用同样的格式 \texttt{AB} 输入，其中 \texttt{A} 是牌上写的数字，\texttt{B} 是单个字母表示牌的类型，我们用 \texttt{m} 表示万子，\texttt{s} 表示索子，\texttt{p} 表示筒子。例如，字符串 \texttt{4m} 表示四万。
-  \item \texttt{east} 表示东风，\texttt{south} 表示南风，\texttt{west} 表示西风，\texttt{north} 表示北风。
-  \item \texttt{white} 表示白，\texttt{green} 表示发，\texttt{red} 表示中。
-\end{enumerate}
-
-\emph{输入保证每种牌的数量不超过 4}。
+下面 $n$ 行，每行一个\emph{两位小数 $a_i$} 和一个整数 $b_i$，用空格隔开，分别表示第 $i$ 种商品的单价和购买量。\emph{注意，输入中不会省略小数点后的零。}
 
 \subsection*{【输出格式】}
 
-输出文件名为 \texttt{mahjong.out}。
+输出文件名为 \texttt{shopping.out}。
 
-输出 $T$ 行，每行一个字符串，\texttt{Yes} 表示和了，\texttt{No} 表示没和。
+仅一行，一个\emph{一位小数}，表示小可可在打折并去分后要付的实际元数。\emph{注意，即使小数点后一位是 0，也要输出。}
 
-\emph{注意：请选手特别注意正确的大小写。}
-
-\subsection*{【样例输入】}
+\subsection*{【样例 1 输入】}
 
 \begin{minted}[frame=single, mathescape, rulecolor=blue, framesep=8pt, numbersep=8pt]{text}
-4
-1p 1p 1p 2p 2p 3p 4p 5p 6p 7p 8p 9p 9p 9p
-6p white white 2s 2s 2s 3s 3s 6p 3s 4s 4s 4s 6p
-1m 1m 1m 1m 2m 2m 2m 2m 3m 3m 3m 3m east east
-red red red white white white green green green west west
+1
+23.70 1
 \end{minted}
 
-\subsection*{【样例输出】}
+\subsection*{【样例 1 输出】}
+\begin{minted}[frame=single, mathescape, rulecolor=blue, framesep=8pt, numbersep=8pt]{text}
+20.1
+\end{minted}
+
+\subsection*{【样例 1 解释】}
+
+这就是【题目背景】中的例子。
+
+\subsection*{【样例 2 输入】}
 
 \begin{minted}[frame=single, mathescape, rulecolor=blue, framesep=8pt, numbersep=8pt]{text}
-No
-Yes
-No
-Yes
+3
+3.00 2
+17.95 1
+0.10 1
 \end{minted}
 
-\subsection*{【样例解释】}
+\subsection*{【样例 2 输出】}
 
-第一组样例的牌型也很罕有，叫做\textit{九莲宝灯}，但是并不是四暗刻，因为只有两组刻子。
+\begin{minted}[frame=single, mathescape, rulecolor=blue, framesep=8pt, numbersep=8pt]{text}
+20.4
+\end{minted}
 
-第二组样例中的对子为两张白，四组刻子为 \texttt{222s}, \texttt{333s}, \texttt{444s} 和 \texttt{666p}，因此是四暗刻。
+\subsection*{【样例 2 解释】}
 
-第三组样例只有三组刻子 \texttt{111m}，\texttt{222m}，\texttt{333m}，缺少一组刻子。
+小可可的原购买金额为 $3.00 \times 2 + 17.95 \times 1 + 0.10 \times 1 = 24.05$ 元，打八五折后为 $24.05 \times 85\% = 20.4425$ 元，去掉零头后为 $20.4$ 元。
 
-第四组样例是完美的四暗刻。另外，它还同时符合\textit{大三元}和\textit{字一色}两个珍稀的\textit{役}。
+\subsection*{【样例 3】}
+
+见下发文件的 \texttt{shopping/shopping3.in} 和 \texttt{shopping/shopping3.ans}。
 
 \subsection*{【数据范围与提示】}
 
+\emph{提示：如果你对浮点数不熟悉的话，请尽量利用整数完成。}
+
 \begin{itemize}
-  \item 对于 $20\%$ 的测试点，$T=1$；
-  \item 对于另外 $30\%$ 的测试点，保证牌的种类只有万子；
-  \item 对于另外 $30\%$ 的测试点，保证牌的种类只有万字、筒子和索子；
-  \item 对于 $100\%$ 的测试点，保证 $1 \le T \le 100$。
+  \item 对于 $30\%$ 的测试点，保证 $n=1$；
+  \item 对于另外 $30\%$ 的测试点，保证答案是整角；
+  \item 对于 $100\%$ 的测试点，保证 $1 \le n \le 10,0.01 \le a_i \le 99.99,1 \le b_i \le 10$。
 \end{itemize}
 
 \newpage
@@ -251,7 +220,7 @@ Yes
 
 \emph{你可以选择跳过背景部分。}
 
-随手\textit{天和}后，麻将让小雪也提不起什么兴趣了。恶劣的天气、压抑的氛围让小雪心情越来越差，之后倒起了苦水：
+买东西的路上小雪吸了好几口雾霾，最后打了个喷嚏。恶劣的天气、压抑的氛围让小雪心情越来越差，之后倒起了苦水：
 
 “唉！今天又被一个不靠谱的同学\textit{坑}了，浪费了我好多时间。”
 
@@ -311,8 +280,10 @@ Yes
 
 \subsection*{【数据范围与提示】}
 
+\emph{提示：本题输入规模较大，请避免使用过慢的输入方式。}
+
 \begin{itemize}
-  \item 对于 $20\%$ 的数据，保证 $1 \le n \le 20$；
+  \item 对于 $20\%$ 的数据，保证 $1 \le n \le 20,1 \le m \le 300$；
   \item 对于另外 $20\%$ 的数据，保证 $1 \le n,m \le 300$；
   \item 对于另外 $20\%$ 的数据，保证 $1 \le x_i,y_i \le 2000$；
   \item 对于另外 $10\%$ 的数据，保证 $1 \le n,m \le 2000$；
@@ -334,11 +305,11 @@ Yes
 
 \subsection*{【问题描述】}
 
-看着这么多蒙灰的衣服，他们俩欲哭无泪；而且有的衣服是没法一起洗的，为了分门别类，小可可给了每种衣服一个 $1 \sim n$ 的两两不同的标号，其中 $n$ 是衣服的件数，把衣服排成 $1,2,\ldots,n$ 的顺序再收会比较方便。
+看着这么多蒙灰的衣服，他们俩欲哭无泪；而且，有的衣服是没法一起洗的，为了分门别类，小可可给了每件衣服一个 $1 \sim n$ 的两两不同的标号，其中 $n$ 是衣服的件数，把衣服排成 $1,2,\ldots,n$ 的顺序再洗会比较方便。
 
 小可可还想到，我们可以把一段连续的晾衣架拿出来，在手上翻转顺序，再放回去。作为 OI 选手的你，马上抽象出了小可可排序衣服的算法：我们设初始时从左往右第 $i$ 件衣服的标号为 $p_i$，按 $1,2,\ldots,n-1$ 的顺序枚举 $i$，设 $p_i,p_{i+1},\ldots,p_n$ 中标号最小的是 $p_j$，那么将 $p_i,p_{i+1},\ldots,p_{j-1},p_j$ 左右翻转变成 $p_j,p_{j-1},\ldots,p_{i+1},p_i$。
 
-小雪很快发现，小可可的算法看似厉害，实际很蠢——在天色的影响下，大家都分不出衣服的标号了。于是他们只能回到房间进行理性愉悦：我们假设左右翻转区间 $[i,j]$ 的操作代价是 $w_{i,j}$，一次排序的代价是每次翻转的操作代价和。现在小可可想知道，当 $p$ 取遍 $n!$ 种排列时，所有情况的排序代价之和。
+小雪很快发现，小可可的算法看似厉害，实际上很傻——在天色的影响下，大家都分不出衣服的标号了。于是他们只能回到房间进行理性愉悦：我们假设左右翻转区间 $[i,j]$ 的操作代价是 $w_{i,j}$，一次排序的代价是每次翻转的操作代价之和。现在小可可想知道，\emph{当 $p$ 取遍 $n!$ 种排列时，所有情况的排序代价之和。}
 
 只用输出答案对 $998244353$（$=7 \times 17 \times 2^{23} + 1$，一个质数）取模后的值。
 
@@ -354,12 +325,13 @@ Yes
 
 输入文件名为 \texttt{sort.out}。
 
-一行一个整数表示答案。
+一行一个整数表示答案对 998244353 取模的结果。
 
 \subsection*{【样例 1 输入】}
 
 \begin{minted}[frame=single, mathescape, rulecolor=blue, framesep=8pt, numbersep=8pt]{text}
-4
+5
+1 2 3 4 5
 1 2 3 4
 1 2 3
 1 2
@@ -368,14 +340,31 @@ Yes
 \subsection*{【样例 1 输出】}
 
 \begin{minted}[frame=single, mathescape, rulecolor=blue, framesep=8pt, numbersep=8pt]{text}
-144
+1080
 \end{minted}
+
+\subsection*{【样例 1 解释】}
+
+我们举一个例子，当 $p=[3,2,5,1,4]$ 时，算法的执行步骤如下：
+
+\begin{itemize}
+  \item 执行到 $i=1$，$p_1,p_2,p_3,p_4,p_5$ 即 $3,2,5,1,4$ 中的最小值为 $p_4=1$，我们翻转区间 $[1,4]$，$p$ 变为 $[1,5,2,3,4]$，代价为 $w_{1,4}=4$；
+  \item 执行到 $i=2$，$p_2,p_3,p_4,p_5$ 即 $5,2,3,4$ 中的最小值为 $p_3=2$，我们翻转区间 $[2,3]$，$p$ 变为 $[1,2,5,3,4]$，代价为 $w_{2,3}=2$；
+  \item 执行到 $i=3$，$p_3,p_4,p_5$ 即 $5,3,4$ 中的最小值为 $p_4=3$，我们翻转区间 $[3,4]$，$p$ 变为 $[1,2,3,5,4]$，代价为 $w_{3,4}=2$；
+  \item 执行到 $i=4$，$p_4,p_5$ 即 $5,4$ 中的最小值为 $p_5=4$，我们翻转区间 $[4,5]$，$p$ 变为 $[1,2,3,4,5]$，代价为 $w_{4,5}=2$。
+\end{itemize}
+
+可以看到，算法执行到第 $i$ 步结束时，序列的 $[1,i]$ 位置上恰好是 $[1,i]$ 号衣服，算法结束后 $p$ 被排好了序。这次排序总共付出了 $4+2+2+2=10$ 的代价。
+
+\emph{注意：算法一定会执行 $n-1$ 步，即使中间就排好了序也不会提前退出。}
 
 \subsection*{【样例 2】}
 
 见下发文件的 \texttt{sort/sort2.in} 和 \texttt{sort/sort2.ans}。
 
 \subsection*{【数据范围与提示】}
+
+\emph{提示：本题输入规模较大，请避免使用过慢的输入方式。}
 
 \begin{itemize}
   \item 对于 $25\%$ 的数据，保证 $1 \le n \le 9$；
@@ -387,7 +376,7 @@ Yes
 
 \newpage
 
-\section{地铁}
+\section{地铁（subway）}
 
 \subsection*{【题目背景】}
 
@@ -420,7 +409,7 @@ B 市的地铁历史悠久，小雪和小可可乘坐的 X 号线是环形路线
 
 \subsection*{【输入格式】}
 
-输入文件名为 \texttt{railway.in}。
+输入文件名为 \texttt{subway.in}。
 
 第一行两个空格隔开的正整数 $n$ 和 $m$。
 
@@ -428,16 +417,18 @@ B 市的地铁历史悠久，小雪和小可可乘坐的 X 号线是环形路线
 
 \subsection*{【输出格式】}
 
-输出文件名为 \texttt{railway.out}。
+输出文件名为 \texttt{subway.out}。
 
 仅一行一个整数，表示所求答案。如果有无穷种取值，请输出 \texttt{-1}。
+
+\emph{保证答案不为 0，即至少有一种可能的方案。}
 
 \newpage
 
 \subsection*{【样例 1 输入】}
 
 \begin{minted}[frame=single, mathescape, rulecolor=blue, framesep=8pt, numbersep=8pt]{text}
-4 8
+4 6
 1 1 3 3
 2 2 4 5
 1 2 4 4
@@ -485,14 +476,14 @@ B 市的地铁历史悠久，小雪和小可可乘坐的 X 号线是环形路线
 
 \subsection*{【样例 3】}
 
-见下发文件的 \texttt{railway/railway3.in} 和 \texttt{railway/railway3.ans}。
+见下发文件的 \texttt{subway/subway3.in} 和 \texttt{subway/subway3.ans}。
 
 \subsection*{【数据范围与提示】}
 
 \begin{itemize}
-  \item 对于 $30\%$ 的数据，保证 $n,m \le 9,L \le 5$；
-  \item 对于另外 $15\%$ 的数据，保证 $T$ 是 $S$ 顺时针方向后第一个车站；
-  \item 对于另外 $20\%$ 的数据，保证 $T$ 是 $S$ 顺时针方向后第二个车站；
+  \item 对于 $30\%$ 的数据，保证 $n,m \le 9,L_i \le 5$；
+  \item 对于另外 $15\%$ 的数据，保证 $T_i$ 是 $S_i$ 顺时针方向后第一个车站；
+  \item 对于另外 $20\%$ 的数据，保证 $T_i$ 是 $S_i$ 顺时针方向后第二个车站；
   \item 对于另外 $25\%$ 的数据，保证 $n,m \le 50$；
   \item 对于 $100\%$ 的数据，保证 $3 \le n \le 500,1 \le m \le 500,1 \le L_i \le 10^9$。
 \end{itemize}

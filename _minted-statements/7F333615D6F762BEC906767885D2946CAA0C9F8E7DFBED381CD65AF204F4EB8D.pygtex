@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+5
+1 2 3 4 5
+1 2 3 4
+1 2 3
+1 2
+\end{Verbatim}

@@ -1,11 +1,14 @@
 #include <cstdio>
+#include <iostream>
 #include <algorithm>
 using namespace std;
 
 typedef long long ll;
 
-const int N = 200005, INF = 2e9 + 1;
-int n, m, x[N], y[N], l[N], r[N], id[N];
+const int N = 200005;
+const ll INF = 1e10 + 1;
+int n, m, x[N], y[N], id[N];
+ll l[N], r[N];
 
 struct cmp {
   bool operator()(int x, int y) {
@@ -37,11 +40,11 @@ int main() {
     else r[i] = INF;
   }
   sort(id + 1, id + 1 + n, cmp());
-  int ans = INF, suf_max = 0;
+  ll ans = INF, suf_max = 0;
   for (int i = n; i >= 0; --i) {
-    ans = min<ll>(ans, min(l[id[i]] + 2ll * suf_max, 2ll * l[id[i]] + suf_max));
+    ans = min(ans, min(l[id[i]] + 2 * suf_max, 2 * l[id[i]] + suf_max));
     suf_max = max(suf_max, r[id[i]]);
   }
-  printf("%d\n", ans);
+  printf("%lld\n", ans);
   return 0;
 }
